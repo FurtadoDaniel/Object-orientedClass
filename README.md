@@ -1,1 +1,1 @@
-# Object-orientedClass
+Repositório contendo trabalhos das classes de Programação Orentada a objeto do professor Leonardo da Cruz (UFF).
