@@ -1,3 +1,8 @@
+  
+/* Alunos: Barbara Drummond
+           Daniel Furtado
+*/
+
 import java.io.*; //FileReader and FileWriter
 import java.util.Scanner; // keyboard input
 import java.util.regex.*; // Pattern and matcher
