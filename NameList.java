@@ -130,7 +130,7 @@ public class NameList {
 				Choose = Option_enter.nextInt();
 			} while (! (contains(Valid_options, Choose))); 
 			
-            switch (Choose) {
+            		switch (Choose) {
 				case 0:Names = loadList(Names, "people.txt");break;
 				case 1:Names = addName(Names, readName());break;
 				case 2:printList(Names);break;
@@ -139,7 +139,7 @@ public class NameList {
 			}
 
 			System.out.print("\033[H\033[2J");  
-            System.out.flush(); 
+            		System.out.flush(); 
 
 		} while (Choose != 9);
 	}
