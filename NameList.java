@@ -4,7 +4,7 @@ import java.util.regex.*;
 
 public class NameList {
 
-    public static void addName(String[] Array, String NewName) {
+    public static String[] addName(String[] Array, String NewName) {
 
         int len = (Array != null) ? Array.length : 0;
 
@@ -13,10 +13,10 @@ public class NameList {
         for (int Counter = 0; Counter < len; Counter++) NewArray[Counter] = Array[Counter];
         NewArray[len] = NewName;
 
-        Array = NewArray;
+        return NewArray;
     }
 
-    public static void loadList(String[] Names, String Archive) {
+    public static String[] loadList(String[] Names, String Archive) {
         
         String Line = null;
         
@@ -24,15 +24,18 @@ public class NameList {
 
             BufferedReader Lines = new BufferedReader(new FileReader(Archive));
 
-            while((Line = Lines.readLine()) != null) addName(Names, Line);
+            while((Line = Lines.readLine()) != null) Names = addName(Names, Line);
 
-            Lines.close();         
+            Lines.close();  
+
+                 
         }
 
         catch(FileNotFoundException ex){ System.out.println("Unable to open file '" + Archive + "'"); }
         catch(IOException ex) {
             System.out.println("Error reading file '"+ Archive + "'");
         }
+        return Names; 
     }
 
     public static boolean verifyName(String Name) {
@@ -43,7 +46,7 @@ public class NameList {
         boolean HasValidCharacter = false;
         for (int Counter =0; Counter < Name.length(); Counter++) if (Name.charAt(Counter) != ' ') HasValidCharacter = true;
 
-        return (HasValidCharacter || HasInvalidCharacter);
+        return (!HasValidCharacter || HasInvalidCharacter);
     }
 
     public static String readName() {
@@ -97,8 +100,8 @@ public class NameList {
 				Choose = Option_enter.nextInt();
 			} while (! (contains(Valid_options, Choose)));
 			switch (Choose) {
-				case 0:loadList(Names, "people.txt");break;
-				case 1:addName(Names, readName());break;
+				case 0:Names = loadList(Names, "people.txt");break;
+				case 1:Names = addName(Names, readName());break;
 				case 2:printList(Names);break;
 				case 4:writeList(Names,"people.txt");break;
 				case 9:System.out.println("End");
