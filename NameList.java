@@ -124,8 +124,8 @@ public class NameList {
 
 			System.out.println("---NameList---\n\n0-Load\n1-Add a name\n2-Show\n3-Write\n9-EXIT");
 			
-            //Repeat until the user choose a valid option
-            do {
+            		//Repeat until the user choose a valid option
+            		do {
 				System.out.print("Choose:");
 				Choose = Option_enter.nextInt();
 			} while (! (contains(Valid_options, Choose))); 
