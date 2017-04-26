@@ -1,6 +1,5 @@
-package BankManager;
+import java.util.ArrayList;
 
-import java.util.Scanner;
 
 public class Bank {
 
@@ -10,27 +9,27 @@ public class Bank {
 	private Cashier cashier1;
 	private Cashier cashier2;
 
-	BankManager () {
+	Bank () {
 
 		this.priority_list = new ArrayList<Client>();
-		this,normal_list = new ArrayList<Client>();
+		this.normal_list = new ArrayList<Client>();
 
 		this.cashier1 = new Cashier();
 		this.cashier2 = new Cashier();
 	}
 
-	public void recive_client (boolean priority, int Operation, int OpValue, int Wallet, int Account)) {
+	public void recive_client (boolean priority, int Operation, int OpValue, int Wallet, int Account) {
 		if (priority) this.priority_list.add( new Client (Operation, OpValue, Wallet, Account) );
 		else this.normal_list.add( new Client (Operation, OpValue, Wallet, Account) );
 	}
 
-	public static meet_clients () {
+	public void meet_clients () {
 		while ( ! (priority_list.isEmpty() && normal_list.isEmpty() ) ) {
 
 			boolean success;
 			Client NextClient;
 
-			if ( ! priority_list.isEmpty() ) NextClient (priority_list.get(0);
+			if ( ! priority_list.isEmpty() ) NextClient (priority_list.get(0));
 			else NextClient = normal_list.get(0);
 
 			success = cashier1.meet_client(NextClient);
@@ -39,7 +38,7 @@ public class Bank {
 
 			NextClient.remove();
 
-			if ( normal_list.isEmpty() || priority_list.size() > 3) NextClient (priority_list.get(0);
+			if ( normal_list.isEmpty() || priority_list.size() > 3) NextClient (priority_list.get(0));
 			else NextClient = normal_list.get(0);
 
 			success = cashier1.meet_client(NextClient);

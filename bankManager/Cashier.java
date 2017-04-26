@@ -1,10 +1,8 @@
-package BankManager;
-
 public class Cashier {
 
-	public static boolean meet_client(Client client)){
+	public static boolean meet_client ( Client client ) {
 
-		switch (client.Operation) {
+		switch (client.Operation )  {
 
 			case 1: 
 				int value_changed =  client.answer_account() - client.OpValue;
@@ -16,16 +14,16 @@ public class Cashier {
 				break;
 
 			case 2:
-				int value_changed =  client.answer_wallet() - client.OpValue;
+				value_changed =  client.answer_wallet() - client.OpValue;
 				if (value_changed >= 0) {
-					client.change_wallet((value_changed);
+					client.change_wallet(value_changed);
 					client.change_account(client.answer_wallet() + value_changed);
 				}
 				else return false;
 				break;
 
 			default: return false;
-			return true;
 		}
+		return true;
 	}
 }
