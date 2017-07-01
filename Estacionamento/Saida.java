@@ -3,11 +3,11 @@ package Estacionamento;
 
 public class Saida extends Guarita {
 	
-    public Saida(){
+    Saida(){
     }
 	
     void AbrirSaida(){
-		this.aberta = true;
+		this.Aberta = true;
         System.out.println("Saida aberta!");
     }
 	
@@ -15,11 +15,13 @@ public class Saida extends Guarita {
 		
 		if(Aberta){
 			
-			for (int i=0; i<3; i++ ){
-				if (vagasCarroGrande [i] == carro) {
-					vagasCarroGrande [i] = null;
+			for (int i=0; i<3; i++){
+                            if (vagasCarroGrande[i] != null)
+				if (vagasCarroGrande[i].getNome() == carro.getNome()) {
+					vagasCarroGrande[i] = null;
 					System.out.println(carro.getNome() + 
                         " saindo!");
+                                return;
 				}
 			}
 			
@@ -36,10 +38,12 @@ public class Saida extends Guarita {
 		if(Aberta){
 			
 			for (int i=0; i<5; i++ ){
-				if (vagasCarroPequeno [i] == carro) {
+                            if (vagasCarroPequeno[i] != null) 
+				if (vagasCarroPequeno[i].getNome() == carro.getNome()) {
 					vagasCarroPequeno [i] = null;
 					System.out.println(carro.getNome() + 
                         " saindo!");
+                                return;
 				}
 			}
 			
@@ -51,15 +55,17 @@ public class Saida extends Guarita {
         }
     }
 	
-	void LiberarCarro(CarroGrande carro){
+	void LiberarCarro(Moto carro){
 		
 		if(Aberta){
 			
 			for (int i=0; i<3; i++ ){
-				if (vagasMoto [i] == carro) {
+                            if (vagasMoto[i] != null)
+				if (vagasMoto [i].getNome() == carro.getNome()) {
 					vagasMoto [i] = null;
 					System.out.println(carro.getNome() + 
                         " saindo!");
+                                        return;
 				}
 			}
 			
@@ -81,7 +87,7 @@ public class Saida extends Guarita {
 			todas = todas || entrada.Aberta;
 		}
 		
-        if (todas){
+        if (!todas){
             System.out.println("Estacionamento fechado! Total do dia: "+ total +" reais.");
         }else{
             System.out.println("Erro ao fechar saida: verifique se ha alguma entrada em funcionamento.");

@@ -5,29 +5,33 @@ public class Entrada extends Guarita {
 	
     private int arrecadado = 0;
 	
-	private int numero
+	private int numero;
 	
+    Entrada(int num){
+		this.numero = num;
+    }
 	
-    void AbrirEntrada(){
+    public void AbrirEntrada(){
         System.out.println("Entrada G" 
-                + i +
+                + this.numero +
                 " em funcionamento!");
-        EntradasAbertas++;
         Aberta = true;
     }
 	
-    void ReceberCarro(CarroGrande carro){
+    public void ReceberCarro(CarroGrande carro){
         
 		if(Aberta){
 			
 			for (int i=0; i<3; i++ ){
 				if (vagasCarroGrande [i] == null) {
+                                    vagasCarroGrande [i] = carro;
 					System.out.println(carro.getNome() + 
                         " entrando por G" 
-                        + this.number + 
+                        + this.numero + 
                         "!");
-				this.arrecadado += 5;
-				}
+			this.arrecadado += 5;
+                        return;
+			}
 				
 			}
 			
@@ -39,18 +43,20 @@ public class Entrada extends Guarita {
         }
     }
 	
-    void ReceberCarro(CarroPequeno carro){
+    public void ReceberCarro(CarroPequeno carro){
         
 		if(Aberta){
 			
 			for (int i=0; i<5; i++ ){
 				if (vagasCarroPequeno [i] == null) {
+                                    vagasCarroPequeno [i] = carro;
 					System.out.println(carro.getNome() + 
                         " entrando por G" 
-                        + this.number + 
+                        + this.numero + 
                         "!");
-				this.arrecadado += 3;
-				}
+                            this.arrecadado += 3;
+                            return;
+			}
 				
 			}
 			
@@ -62,18 +68,20 @@ public class Entrada extends Guarita {
         }
     }
 	
-    void ReceberCarro(Moto carro){
+    public void ReceberCarro(Moto carro){
         
 		if(Aberta){
 			
 			for (int i=0; i<3; i++ ){
 				if (vagasMoto [i] == null) {
+                                        vagasMoto [i] = carro;
 					System.out.println(carro.getNome() + 
                         " entrando por G" 
-                        + this.number + 
+                        + this.numero + 
                         "!");
 				this.arrecadado += 1;
-				}
+                                return;
+                        }
 				
 			}
 			
@@ -89,9 +97,9 @@ public class Entrada extends Guarita {
 		return this.arrecadado;
 	}
 	
-    void FecharEntrada(){
+    public void FecharEntrada(){
         System.out.println("Fechando entrada G"
-                + this.number +
+                + this.numero +
                 " com total de " 
                 + this.arrecadado +
                 " reais.");
